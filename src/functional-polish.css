@@ -1,0 +1,4 @@
+/* Larger footer hit areas without altering its approved layout or appearance. */
+.brand-closing__links a { position: relative; }
+.brand-closing__links a::after { content: ''; position: absolute; inset: -6px 0; }
+.brand-closing__footer:focus-within { opacity: 1 !important; }

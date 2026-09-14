@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#14352d" />
+    <meta name="description" content="Fresh fruit tea made with bright flavours, real ingredients and refreshing everyday moments." />
+    <title>CHADOO — Good Tea, Brighter Days</title>
+    <link rel="icon" href="data:," />
+    <!-- Replace the empty favicon with /images/chadoo-favicon.png when the approved standalone logo asset is supplied. -->
+    <link rel="stylesheet" href="/src/hero.css" />
+    <link rel="stylesheet" href="/src/navigation.css" />
+    <link rel="stylesheet" href="/src/brand-statement.css" />
+    <script type="module" src="/src/hero.js"></script>
+    <script type="module" src="/src/navigation.js"></script>
+    <script type="module" src="/src/brand-statement.js"></script>
+    <link rel="stylesheet" href="/src/signature-drinks.css" />
+    <script type="module" src="/src/signature-drinks.js"></script>
+    <link rel="stylesheet" href="/src/fresh-by-nature.css" />
+    <script type="module" src="/src/fresh-by-nature.js"></script>
+    <link rel="stylesheet" href="/src/moments.css" />
+    <script type="module" src="/src/moments.js"></script>
+    <link rel="stylesheet" href="/src/find-chadoo.css" />
+    <script type="module" src="/src/find-chadoo.js"></script>
+    <link rel="stylesheet" href="/src/drink-reveal.css" />
+    <script type="module" src="/src/drink-reveal.js"></script>
+    <link rel="stylesheet" href="/src/brand-closing.css" />
+    <script type="module" src="/src/brand-closing.js"></script>
+    <link rel="stylesheet" href="/src/functional-polish.css" />
+    <script type="module" src="/src/functional-polish.js"></script>
+  </head>
+  <body>
+    <nav class="floating-nav" aria-label="Main navigation" data-navigation>
+      <a class="floating-nav__item" href="#signature-drinks" aria-label="Drinks">
+        <span class="floating-nav__label">DRINKS</span><span class="floating-nav__dot" aria-hidden="true"></span>
+      </a>
+      <a class="floating-nav__item" href="#menu" aria-label="Menu" aria-disabled="true">
+        <span class="floating-nav__label">MENU</span>
+      </a>
+      <a class="floating-nav__item" href="#brand-statement" aria-label="Story">
+        <span class="floating-nav__label">STORY</span><span class="floating-nav__dot" aria-hidden="true"></span>
+      </a>
+      <a class="floating-nav__item" href="#find-your-chadoo" aria-label="Stores">
+        <span class="floating-nav__label">STORES</span><span class="floating-nav__dot" aria-hidden="true"></span>
+      </a>
+      <a class="floating-nav__item floating-nav__item--order" href="#order" aria-label="Order now" aria-disabled="true">
+        <span class="floating-nav__label">ORDER NOW</span>
+      </a>
+    </nav>
+    <main>
+      <section class="hero" aria-label="茶嘟 CHADOO fruit tea" data-hero>
+        <div class="hero__stage">
+          <picture class="hero__poster" aria-hidden="true">
+            <source media="(prefers-reduced-motion: reduce) and (max-width: 767px)" srcset="/posters/chadoo-hero-mobile-final.webp" />
+            <source media="(prefers-reduced-motion: reduce)" srcset="/posters/chadoo-hero-desktop-final.webp" />
+            <source media="(max-width: 767px)" srcset="/posters/chadoo-hero-mobile-start.webp" />
+            <img src="/posters/chadoo-hero-desktop-start.webp" alt="" fetchpriority="high" />
+          </picture>
+          <video class="hero__video" muted playsinline preload="auto" disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1"></video>
+        </div>
+      </section>
+      <section class="brand-statement" id="brand-statement" aria-labelledby="brand-statement-title">
+        <div class="brand-statement__content">
+          <p class="brand-statement__eyebrow" data-statement-reveal="eyebrow">FRESHLY MADE · BRIGHTER DAYS</p>
+          <h1 class="brand-statement__headline" id="brand-statement-title">
+            <span data-statement-reveal="headline-first">Fruit tea,</span>
+            <span data-statement-reveal="headline-last">made to feel alive.</span>
+          </h1>
+          <p class="brand-statement__body" data-statement-reveal="body">Fresh fruit. Real tea. Bright flavours made for every kind of day.</p>
+        </div>
+      </section>
+      <section class="signature-drinks" id="signature-drinks" aria-label="Signature drinks">
+        <div class="signature-drinks__stage">
+          <div class="signature-drinks__track">
+            <article class="signature-drinks__panel signature-drinks__panel--lime" aria-labelledby="drink-lime">
+              <div class="signature-drinks__copy">
+                <p class="signature-drinks__meta"><span class="signature-drinks__number">01</span> LIME</p>
+                <h2 class="signature-drinks__title" id="drink-lime"><span>Bright.</span><span>Crisp.</span><span>Refreshing.</span></h2>
+                <p class="signature-drinks__body">Fresh lime, tea and cooling citrus notes.</p>
+              </div>
+              <figure class="signature-drinks__visual">
+                <button class="drink-window" type="button" aria-expanded="false" aria-label="Expand LIME drink">
+                  <img class="signature-drinks__image" src="/images/chadoo-lime.png" alt="CHADOO LIME fruit tea" loading="lazy" decoding="async" />
+                </button>
+                <figcaption class="drink-window__label">LIME</figcaption>
+              </figure>
+            </article>
+            <article class="signature-drinks__panel signature-drinks__panel--peach" aria-labelledby="drink-peach">
+              <div class="signature-drinks__copy">
+                <p class="signature-drinks__meta"><span class="signature-drinks__number">02</span> PEACH</p>
+                <h2 class="signature-drinks__title" id="drink-peach"><span>Soft.</span><span>Juicy.</span><span>Vibrant.</span></h2>
+                <p class="signature-drinks__body">Ripe peach flavour with a clean tea finish.</p>
+              </div>
+              <figure class="signature-drinks__visual">
+                <button class="drink-window" type="button" aria-expanded="false" aria-label="Expand PEACH drink">
+                  <img class="signature-drinks__image" src="/images/chadoo-peach.png" alt="CHADOO PEACH fruit tea" loading="lazy" decoding="async" />
+                </button>
+                <figcaption class="drink-window__label">PEACH</figcaption>
+              </figure>
+            </article>
+            <article class="signature-drinks__panel signature-drinks__panel--passion" aria-labelledby="drink-passion">
+              <div class="signature-drinks__copy">
+                <p class="signature-drinks__meta"><span class="signature-drinks__number">03</span> PASSION FRUIT</p>
+                <h2 class="signature-drinks__title" id="drink-passion"><span>Bold.</span><span>Tropical.</span><span>Bright.</span></h2>
+                <p class="signature-drinks__body">Tangy passion fruit layered with refreshing tea.</p>
+              </div>
+              <figure class="signature-drinks__visual">
+                <button class="drink-window" type="button" aria-expanded="false" aria-label="Expand PASSION FRUIT drink">
+                  <img class="signature-drinks__image" src="/images/chadoo-passion-fruit.png" alt="CHADOO PASSION FRUIT fruit tea" loading="lazy" decoding="async" />
+                </button>
+                <figcaption class="drink-window__label">PASSION FRUIT</figcaption>
+              </figure>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="fresh-nature" id="fresh-by-nature" aria-labelledby="fresh-nature-title">
+        <div class="fresh-nature__stage">
+          <header class="fresh-nature__header">
+            <p class="fresh-nature__eyebrow">FRESH BY NATURE</p>
+            <h2 class="fresh-nature__headline" id="fresh-nature-title"><span>REAL FRUIT.</span><span>REAL TEA.</span><span>REAL REFRESHMENT.</span></h2>
+            <p class="fresh-nature__intro">Bright fruit, refreshing tea and simple ingredients made to taste alive.</p>
+          </header>
+          <article class="fresh-nature__ingredient fresh-nature__ingredient--lime" aria-labelledby="ingredient-lime">
+            <figure class="fresh-nature__visual">
+              <img src="/images/ingredient-lime.webp" width="1122" height="1402" alt="Fresh lime halves and slices with water droplets" loading="lazy" decoding="async" />
+            </figure>
+            <div class="fresh-nature__copy">
+              <h3 class="fresh-nature__name" id="ingredient-lime"><span class="fresh-nature__number">01</span>LIME</h3>
+              <p class="fresh-nature__description">Crisp citrus brightness with a clean refreshing finish.</p>
+            </div>
+          </article>
+          <article class="fresh-nature__ingredient fresh-nature__ingredient--peach" aria-labelledby="ingredient-peach">
+            <figure class="fresh-nature__visual">
+              <img src="/images/ingredient-peach.webp" width="1122" height="1402" alt="Juicy peach halves and slices with water droplets" loading="lazy" decoding="async" />
+            </figure>
+            <div class="fresh-nature__copy">
+              <h3 class="fresh-nature__name" id="ingredient-peach"><span class="fresh-nature__number">02</span>PEACH</h3>
+              <p class="fresh-nature__description">Soft, juicy sweetness with a naturally vibrant fruit character.</p>
+            </div>
+          </article>
+          <article class="fresh-nature__ingredient fresh-nature__ingredient--passion-fruit" aria-labelledby="ingredient-passion-fruit">
+            <figure class="fresh-nature__visual">
+              <img src="/images/ingredient-passion-fruit.webp" width="1122" height="1402" alt="Cut passion fruit showing golden pulp and seeds" loading="lazy" decoding="async" />
+            </figure>
+            <div class="fresh-nature__copy">
+              <h3 class="fresh-nature__name" id="ingredient-passion-fruit"><span class="fresh-nature__number">03</span>PASSION FRUIT</h3>
+              <p class="fresh-nature__description">Bold tropical acidity with a bright, aromatic finish.</p>
+            </div>
+          </article>
+          <article class="fresh-nature__ingredient fresh-nature__ingredient--tea-leaves" aria-labelledby="ingredient-tea-leaves">
+            <figure class="fresh-nature__visual">
+              <img src="/images/ingredient-tea-leaves.webp" width="1122" height="1402" alt="Fresh green tea leaves with water droplets" loading="lazy" decoding="async" />
+            </figure>
+            <div class="fresh-nature__copy">
+              <h3 class="fresh-nature__name" id="ingredient-tea-leaves"><span class="fresh-nature__number">04</span>TEA LEAVES</h3>
+              <p class="fresh-nature__description">Fresh-brewed tea forms the clean, balanced base of every drink.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="moments" id="chadoo-moments" aria-labelledby="moments-title">
+        <div class="moments__stage">
+          <div class="moments__scene">
+            <img class="moments__image" src="/images/chadoo-moment.jpg" width="1536" height="864" alt="A woman enjoying CHADOO fruit tea at an outdoor café in afternoon sunlight" loading="lazy" decoding="async" />
+            <div class="moments__copy">
+              <p class="moments__eyebrow">CHADOO MOMENTS</p>
+              <h2 class="moments__headline" id="moments-title"><span>MADE FOR</span><span>YOUR MOMENT.</span></h2>
+              <p class="moments__support">A little brighter, wherever the day takes you.</p>
+            </div>
+            <ol class="moments__labels" aria-label="Moments throughout the day">
+              <li class="moments__label">MORNING</li>
+              <li class="moments__label">AFTERNOON</li>
+              <li class="moments__label">NIGHT</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <section class="find-chadoo" id="find-your-chadoo" aria-labelledby="find-chadoo-title">
+        <div class="find-chadoo__layout">
+          <div class="find-chadoo__intro">
+            <p class="find-chadoo__eyebrow">NEAR YOU</p>
+            <h2 class="find-chadoo__headline" id="find-chadoo-title"><span>FIND YOUR</span><span>CHADOO.</span></h2>
+            <p class="find-chadoo__support">Fresh fruit tea, closer than you think.</p>
+            <div class="find-chadoo__cities" role="tablist" aria-label="Choose a city">
+              <button class="find-chadoo__city" id="city-city-centre" type="button" role="tab" aria-selected="true" aria-controls="location-city-centre" tabindex="0" data-stores-url="" data-order-url="">CITY CENTRE</button>
+              <button class="find-chadoo__city" id="city-riverside" type="button" role="tab" aria-selected="false" aria-controls="location-riverside" tabindex="-1" data-stores-url="" data-order-url="">RIVERSIDE</button>
+              <button class="find-chadoo__city" id="city-old-town" type="button" role="tab" aria-selected="false" aria-controls="location-old-town" tabindex="-1" data-stores-url="" data-order-url="">OLD TOWN</button>
+            </div>
+          </div>
+          <div class="find-chadoo__visual">
+            <div class="find-chadoo__panel find-chadoo__panel--city-centre is-active" id="location-city-centre" role="tabpanel" aria-labelledby="city-city-centre" aria-hidden="false">
+              <img src="/images/store-city-centre.jpg" width="1536" height="864" alt="Modern CHADOO storefront on a tree-lined city street" loading="lazy" decoding="async" />
+            </div>
+            <div class="find-chadoo__panel find-chadoo__panel--riverside" id="location-riverside" role="tabpanel" aria-labelledby="city-riverside" aria-hidden="true">
+              <img src="/images/store-riverside.jpg" width="1536" height="864" alt="CHADOO café with outdoor seating beside the river" loading="lazy" decoding="async" />
+            </div>
+            <div class="find-chadoo__panel find-chadoo__panel--old-town" id="location-old-town" role="tabpanel" aria-labelledby="city-old-town" aria-hidden="true">
+              <img src="/images/store-old-town.jpg" width="1536" height="864" alt="CHADOO storefront in a historic old-town building" loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <div class="find-chadoo__actions">
+            <a class="find-chadoo__action" role="link" tabindex="0" aria-disabled="true" data-destination="storesUrl">VIEW STORES</a>
+            <a class="find-chadoo__action find-chadoo__action--secondary" role="link" tabindex="0" aria-disabled="true" data-destination="orderUrl">ORDER NOW</a>
+            <p class="find-chadoo__status" role="status"></p>
+          </div>
+        </div>
+      </section>
+      <section class="brand-closing" id="brighter-days" aria-labelledby="closing-title">
+        <div class="brand-closing__message">
+          <h2 class="brand-closing__headline" id="closing-title"><span>GOOD TEA.</span><span>BRIGHTER DAYS.</span></h2>
+          <p class="brand-closing__support">Fresh fruit tea, made for every day.</p>
+        </div>
+        <footer class="brand-closing__footer">
+          <nav class="brand-closing__links" aria-label="Footer navigation">
+            <a href="#signature-drinks">DRINKS</a>
+            <span role="link" aria-disabled="true">MENU</span>
+            <a href="#brand-statement">STORY</a>
+            <a href="#find-your-chadoo">STORES</a>
+            <span role="link" aria-disabled="true">INSTAGRAM</span>
+          </nav>
+          <p class="brand-closing__copyright">© 2026 CHADOO</p>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
+
+

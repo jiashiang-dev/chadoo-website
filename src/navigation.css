@@ -1,0 +1,76 @@
+.floating-nav {
+  position: fixed;
+  z-index: 100;
+  top: max(28px, env(safe-area-inset-top, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: min(720px, calc(100% - 96px));
+  height: 56px;
+  padding: 5px 20px;
+  box-sizing: border-box;
+  border-radius: 999px;
+  color: #143c32;
+  background: rgb(246 253 245 / 28%);
+  border: 1px solid rgb(255 255 255 / 48%);
+  box-shadow: 0 4px 20px rgb(20 60 50 / 7%), inset 0 1px 0 rgb(255 255 255 / 25%);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.floating-nav__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 44px;
+  border-radius: 999px;
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 160ms ease;
+}
+.floating-nav__label {
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 1.8px;
+}
+.floating-nav__dot { display: none; }
+.floating-nav__item:hover { background: rgb(255 255 255 / 20%); }
+.floating-nav__item:focus-visible { outline: 1px solid currentColor; outline-offset: -3px; }
+.floating-nav__item--order { position: relative; isolation: isolate; }
+.floating-nav__item--order:hover { background: transparent; }
+.floating-nav__item--order .floating-nav__label { font-weight: 800; }
+@media (max-width: 767px) {
+  .floating-nav {
+    top: max(20px, env(safe-area-inset-top, 0px));
+    width: min(520px, calc(100% - 48px));
+    height: 52px;
+    padding: 3px 8px;
+  }
+  .floating-nav__label { font-size: clamp(9px, 2.35vw, 10px); letter-spacing: clamp(0.1px, 0.12vw, 0.6px); }
+  .floating-nav__item--order { flex-grow: 1.5; }
+  .floating-nav__item--order .floating-nav__label { letter-spacing: 0.1px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .floating-nav__item { transition: none; }
+}
+
+/* A quiet glass surface over Section 02; retain border width for exact sizing. */
+.floating-nav--on-cream {
+  background: rgb(255 255 255 / 32%);
+  border-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+.floating-nav--on-cream .floating-nav__label { font-weight: 700; }
+.floating-nav--on-cream .floating-nav__item:hover { background: transparent; }
+.floating-nav--on-cream .floating-nav__item:focus-visible {
+  outline: none;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}

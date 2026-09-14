@@ -1,0 +1,49 @@
+.find-chadoo { background: #f7f4eb; color: #173e32; font-family: Arial, Helvetica, sans-serif; padding: clamp(104px, 10vw, 160px) 7vw; }
+.find-chadoo__layout { display: grid; grid-template-columns: 1fr 1fr; column-gap: 7vw; row-gap: 36px; max-width: 1500px; margin: 0 auto; align-items: center; }
+.find-chadoo__intro { grid-area: 1 / 1; align-self: end; }
+.find-chadoo__eyebrow { margin: 0 0 28px; font-size: 10px; font-weight: 700; letter-spacing: .22em; }
+.find-chadoo__headline { margin: 0; font-size: clamp(54px, 6vw, 100px); font-weight: 500; line-height: 1.02; letter-spacing: -.055em; }
+.find-chadoo__headline span { display: block; }
+.find-chadoo__support { margin: 28px 0 0; font-size: 17px; line-height: 1.7; color: #54665a; }
+.find-chadoo__cities { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 32px 0 0; }
+.find-chadoo__city { appearance: none; padding: 12px 0; border: 0; background: none; font: inherit; font-size: 10px; font-weight: 600; letter-spacing: .09em; color: #173e32; opacity: .55; cursor: pointer; min-height: 44px; transition: opacity 180ms ease; }
+.find-chadoo__city[aria-selected="true"] { opacity: 1; box-shadow: inset 0 -1px currentColor; }
+.find-chadoo__city:hover { opacity: 1; }
+.find-chadoo :focus-visible { outline: 2px solid #173e32; outline-offset: 5px; }
+.find-chadoo__visual { grid-area: 1 / 2 / 3 / 3; position: relative; aspect-ratio: 4 / 5; width: 100%; overflow: hidden; background: #e9ecdf; }
+.find-chadoo__panel { position: absolute; inset: 0; margin: 0; display: grid; place-content: center; text-align: center; gap: 14px; opacity: 0; transform: scale(1.018); transition: opacity 550ms cubic-bezier(.45, 0, .35, 1), transform 550ms cubic-bezier(.45, 0, .35, 1); pointer-events: none; background: #e9ecdf; }
+.find-chadoo__panel--riverside { background: #eee8df; }
+.find-chadoo__panel--old-town { background: #e8e9df; }
+.find-chadoo__panel.is-active { opacity: 1; transform: scale(1); }
+.find-chadoo__panel img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.find-chadoo__panel img:not([src]) { visibility: hidden; }
+.find-chadoo__panel:has(img[src]) .find-chadoo__placeholder { display: none; }
+.find-chadoo__placeholder { font-size: 10px; letter-spacing: .18em; color: #66735f; }
+.find-chadoo__placeholder small { display: block; margin-top: 14px; font-size: 8px; letter-spacing: .15em; }
+.find-chadoo__actions { grid-area: 2 / 1; align-self: start; display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
+.find-chadoo__action { display: inline-block; padding: 16px 24px; border: 1px solid #173e32; color: #f7f4eb; background: #173e32; text-decoration: none; font-size: 10px; font-weight: 600; letter-spacing: .14em; }
+.find-chadoo__action--secondary { padding: 16px 0; border: 0; background: none; color: #173e32; }
+.find-chadoo__action[aria-disabled="true"] { cursor: default; }
+.find-chadoo__status { flex-basis: 100%; margin: 0; color: #54665a; font-size: 13px; line-height: 1.6; }
+.find-chadoo__status:empty { display: none; }
+@media (min-width: 901px) {
+  .find-chadoo__visual {
+    width: min(44vw, 680px);
+    min-width: 0;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    align-self: center;
+  }
+}
+@media (max-width: 900px) {
+  .find-chadoo { padding: 96px 7vw; }
+  .find-chadoo__layout { grid-template-columns: 1fr; gap: 36px; }
+  .find-chadoo__intro, .find-chadoo__visual, .find-chadoo__actions { grid-area: auto; }
+  .find-chadoo__visual { aspect-ratio: 16 / 9; }
+  .find-chadoo__headline { font-size: clamp(52px, 11vw, 84px); }
+  .find-chadoo__cities { gap: 4px 20px; }
+  .find-chadoo__city { font-size: 9px; }
+  .find-chadoo__actions { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .find-chadoo__status { flex-basis: auto; }
+}
+@media (prefers-reduced-motion: reduce) { .find-chadoo__panel, .find-chadoo__city { transition: none; transform: none; } }

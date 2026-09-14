@@ -1,0 +1,64 @@
+.fresh-nature {
+  position: relative;
+  overflow-anchor: none;
+  background: #f7f4eb;
+  color: #173e32;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.fresh-nature__stage { padding: 116px 7vw 80px; }
+.fresh-nature__header { max-width: 680px; margin-bottom: 72px; }
+.fresh-nature__eyebrow { margin: 0 0 28px; font-size: 10px; font-weight: 700; letter-spacing: .2em; }
+.fresh-nature__headline { margin: 0; font-size: clamp(42px, 5vw, 84px); line-height: 1.04; font-weight: 500; letter-spacing: -.055em; }
+.fresh-nature__headline span { display: block; }
+.fresh-nature__intro { max-width: 34ch; margin: 28px 0 0; font-size: 16px; line-height: 1.7; color: #54665a; }
+.fresh-nature__ingredient { margin: 0 0 88px; }
+.fresh-nature__ingredient:last-child { margin-bottom: 0; }
+.fresh-nature__visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: 0 0 32px;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: transparent;
+  overflow: hidden;
+}
+.fresh-nature__visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.fresh-nature__name { display: flex; align-items: baseline; gap: 22px; margin: 0; font-size: 15px; font-weight: 600; letter-spacing: .12em; }
+.fresh-nature__number { font-size: 11px; font-weight: 400; opacity: .6; }
+.fresh-nature__description { max-width: 32ch; margin: 20px 0 0; font-size: 17px; line-height: 1.7; color: #54665a; }
+@media (min-width: 1024px) and (min-height: 700px) and (prefers-reduced-motion: no-preference) {
+  .fresh-nature.is-sticky { height: 460svh; }
+  .fresh-nature.is-sticky .fresh-nature__stage {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    display: grid;
+    grid-template-columns: 1.12fr 1fr;
+    grid-template-rows: 1fr auto;
+    column-gap: 5vw;
+    row-gap: 40px;
+    padding: 128px 7vw 72px;
+    overflow: hidden;
+  }
+  .fresh-nature.is-sticky .fresh-nature__header { grid-area: 1 / 1; margin: 0; align-self: center; }
+  .fresh-nature.is-sticky .fresh-nature__headline { font-size: clamp(38px, 3.8vw, 64px); }
+  .fresh-nature.is-sticky .fresh-nature__ingredient { display: contents; }
+  .fresh-nature.is-sticky .fresh-nature__visual {
+    position: absolute;
+    top: 16svh;
+    right: calc(3vw + 28px);
+    width: min(40vw, 600px);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin: 0;
+  }
+  .fresh-nature.is-sticky .fresh-nature__visual img { object-fit: cover; object-position: center; }
+  .fresh-nature.is-sticky .fresh-nature__copy { grid-area: 2 / 1; align-self: start; }
+}
+@media (max-width: 767px) {
+  .fresh-nature__stage { padding: 104px 7vw 64px; }
+  .fresh-nature__headline { font-size: clamp(34px, 7.5vw, 56px); }
+  .fresh-nature__header { margin-bottom: 56px; }
+  .fresh-nature__description { font-size: 16px; }
+}

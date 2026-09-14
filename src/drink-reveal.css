@@ -1,0 +1,55 @@
+/* The outer visual keeps its existing grid footprint; only the cup moves. */
+.drink-window {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #e1e9cd;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.signature-drinks__panel--peach .drink-window { background: #efd9cd; }
+.signature-drinks__panel--passion .drink-window { background: #eee5bf; }
+.drink-window .signature-drinks__image {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* Only the rim peeks above the fixed window's existing overflow edge. */
+  transform: translateY(40%) scale(.50);
+  transform-origin: bottom center;
+  transition: transform 1100ms cubic-bezier(.45, 0, .35, 1);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.drink-window[aria-expanded="true"] .signature-drinks__image { transform: translateY(-1%) scale(1.02); }
+.drink-window:focus-visible { outline: 2px solid #173e32; outline-offset: 5px; }
+.drink-window__label {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 28.70px 34.74px;
+  border-radius: 0 13px 0 28px;
+  background: #f7f4eb;
+  color: #173e32;
+  font-size: 15.104px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  pointer-events: none;
+}
+@media (max-width: 767px) {
+  .signature-drinks__visual { aspect-ratio: 1 / 1; }
+  .drink-window { border-radius: 22px; }
+  .drink-window[aria-expanded="true"] .signature-drinks__image { transform: translateY(5.5%) scale(1.16); }
+  .drink-window__label { padding: 24.1664px 27.1872px; font-size: 13.5936px; border-bottom-left-radius: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .drink-window .signature-drinks__image { transition: none; }
+}

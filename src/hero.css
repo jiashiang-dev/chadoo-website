@@ -1,0 +1,63 @@
+:root {
+  color-scheme: dark;
+  background: #14352d;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+
+.hero {
+  /* Five viewport lengths of travel for the active film's full duration. */
+  --scrub-distance: 500svh;
+  position: relative;
+  height: 600vh;
+  height: calc(100dvh + var(--scrub-distance));
+  overflow-anchor: none;
+}
+
+.hero__stage {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  isolation: isolate;
+  background: #14352d;
+}
+
+.hero__poster,
+.hero__poster img,
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero__poster img,
+.hero__video {
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero__video {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.hero__video.is-ready { visibility: visible; }
+.hero__video::-webkit-media-controls { display: none !important; }
+
+@media (min-width: 768px) {
+  /* The landscape film places the drinks to the right of its open sky. */
+  .hero__poster img,
+  .hero__video { object-position: 72% center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero { height: 100vh; height: 100dvh; }
+  .hero__stage { position: relative; }
+  .hero__video { display: none; }
+}

@@ -1,0 +1,78 @@
+.signature-drinks {
+  color: #173e32;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  overflow-anchor: none;
+}
+.signature-drinks__stage { overflow: hidden; }
+.signature-drinks__panel {
+  --drink-tone: #eef2df;
+  background: var(--drink-tone);
+  min-height: 100svh;
+  padding: 128px clamp(28px, 7vw, 112px) 64px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: clamp(32px, 6vw, 100px);
+}
+.signature-drinks__panel--peach { --drink-tone: #f7e8df; }
+.signature-drinks__panel--passion { --drink-tone: #f7f1da; }
+.signature-drinks__meta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 0 0 40px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .18em;
+}
+.signature-drinks__number { font-weight: 400; opacity: .65; }
+.signature-drinks__title {
+  margin: 0;
+  font-size: clamp(56px, 6.4vw, 108px);
+  font-weight: 500;
+  line-height: 1.01;
+  letter-spacing: -.055em;
+}
+.signature-drinks__title span { display: block; }
+.signature-drinks__body {
+  max-width: 29ch;
+  margin: 32px 0 0;
+  font-size: 17px;
+  line-height: 1.65;
+  color: #405849;
+}
+.signature-drinks__visual {
+  margin: 0;
+  width: 100%;
+  max-width: 510px;
+  height: min(64svh, 680px);
+  justify-self: center;
+  display: grid;
+  place-items: center;
+}
+.signature-drinks__visual { position: relative; overflow: visible; }
+.signature-drinks__image {
+  position: absolute;
+  inset: -3%;
+  width: 106%;
+  height: 106%;
+  object-fit: contain;
+  display: block;
+  background: transparent;
+  border: 0;
+}
+.signature-drinks__image:not([src]) { visibility: hidden; }
+@media (min-width: 1024px) and (min-height: 600px) and (prefers-reduced-motion: no-preference) {
+  .signature-drinks.is-horizontal { height: 400svh; }
+  .signature-drinks.is-horizontal .signature-drinks__stage { position: sticky; top: 0; height: 100svh; }
+  .signature-drinks.is-horizontal .signature-drinks__track { display: flex; }
+  .signature-drinks.is-horizontal .signature-drinks__panel { flex: 0 0 100%; height: 100svh; min-width: 0; }
+}
+@media (max-width: 1023px), (max-height: 599px) {
+  .signature-drinks__panel { grid-template-columns: 1fr; gap: 44px; padding: 112px 7vw 64px; }
+  .signature-drinks__meta { margin-bottom: 28px; }
+  .signature-drinks__title { font-size: clamp(48px, 9vw, 80px); }
+  .signature-drinks__body { margin-top: 24px; font-size: 16px; }
+  .signature-drinks__visual { height: auto; aspect-ratio: 4 / 5; max-width: 460px; }
+}
