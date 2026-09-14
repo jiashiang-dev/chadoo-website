@@ -1,0 +1,19 @@
+[build]
+  publish = "."
+
+# Match scripts/serve.mjs: public assets are requested without /public.
+# Internal rewrites retain the existing URLs and serve the original files.
+[[redirects]]
+  from = "/images/*"
+  to = "/public/images/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/videos/*"
+  to = "/public/videos/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/posters/*"
+  to = "/public/posters/:splat"
+  status = 200
