@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "node scripts/serve.mjs",
     "start": "node scripts/serve.mjs",
+    "build": "node scripts/build-pages.mjs",
+    "preview:pages": "node scripts/preview-pages.mjs",
+    "check:pages": "node scripts/check-pages.mjs",
     "check": "node --check src/hero.js && node --check scripts/serve.mjs"
   }
 }
