@@ -162,16 +162,20 @@
       <section class="moments" id="chadoo-moments" aria-labelledby="moments-title">
         <div class="moments__stage">
           <div class="moments__scene">
-            <img class="moments__image" src="/images/chadoo-moment.jpg" width="1536" height="864" alt="A woman enjoying CHADOO fruit tea at an outdoor café in afternoon sunlight" loading="lazy" decoding="async" />
+            <div class="moments__photography">
+              <img class="moments__image" src="/images/chadoo-moment-morning.png" width="1536" height="1024" alt="Morning by a café window, enjoying CHADOO Lime fruit tea" loading="lazy" decoding="async" />
+              <img class="moments__image" src="/images/chadoo-moment-afternoon.png" width="1536" height="1024" alt="Afternoon at a street café, with CHADOO Peach fruit tea on the table" loading="lazy" decoding="async" aria-hidden="true" />
+              <img class="moments__image" src="/images/chadoo-moment-night.png" width="1536" height="1024" alt="An evening at the café counter, holding CHADOO Passion Fruit tea" loading="lazy" decoding="async" aria-hidden="true" />
+            </div>
             <div class="moments__copy">
               <p class="moments__eyebrow">CHADOO MOMENTS</p>
               <h2 class="moments__headline" id="moments-title"><span>MADE FOR</span><span>YOUR MOMENT.</span></h2>
               <p class="moments__support">A little brighter, wherever the day takes you.</p>
             </div>
             <ol class="moments__labels" aria-label="Moments throughout the day">
-              <li class="moments__label">MORNING</li>
-              <li class="moments__label">AFTERNOON</li>
-              <li class="moments__label">NIGHT</li>
+              <li class="moments__label"><button type="button" aria-pressed="true">MORNING</button></li>
+              <li class="moments__label"><button type="button" aria-pressed="false">AFTERNOON</button></li>
+              <li class="moments__label"><button type="button" aria-pressed="false">NIGHT</button></li>
             </ol>
           </div>
         </div>
