@@ -50,7 +50,7 @@ html, body { margin: 0; }
 .hero__video.is-ready { visibility: visible; }
 .hero__video::-webkit-media-controls { display: none !important; }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px), (min-width: 768px) and (orientation: landscape) {
   /* The landscape film places the drinks to the right of its open sky. */
   .hero__poster img,
   .hero__video { object-position: 72% center; }

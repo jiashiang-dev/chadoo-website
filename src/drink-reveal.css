@@ -1,5 +1,18 @@
 /* The outer visual keeps its existing grid footprint; only the cup moves. */
 .drink-window {
+  --cup-label-clearance: 76px;
+  --cup-growth: 1.28;
+  --cup-fit-clearance: 74.5px;
+  --cup-fit-gap: 5px;
+  --cup-art-bottom: .911;
+  --cup-fit-span: .824;
+  --cup-offset-y: 20px;
+  /* Reclaim the PNG's transparent gutters without hiding the lid or base.
+     The fit limit also reserves room for the existing hover enlargement. */
+  --cup-image-height: min(
+    calc((100% - var(--cup-label-clearance)) * var(--cup-growth)),
+    calc((100% - var(--cup-fit-clearance) - var(--cup-fit-gap)) / var(--cup-fit-span))
+  );
   position: absolute;
   inset: 0;
   width: 100%;
@@ -15,20 +28,30 @@
 }
 .signature-drinks__panel--peach .drink-window { background: #efd9cd; }
 .signature-drinks__panel--passion .drink-window { background: #eee5bf; }
+.signature-drinks__panel--peach .drink-window {
+  /* Match the visible cup height despite the Peach PNG's smaller top gutter. */
+  --cup-art-bottom: .913;
+  --cup-fit-span: .842;
+}
+.signature-drinks__panel--passion .drink-window {
+  /* The long fixed label already meets the base; retain its safe clearance. */
+  --cup-offset-y: .5px;
+}
 .drink-window .signature-drinks__image {
-  inset: 0;
+  inset: auto 0 auto;
+  top: calc(100% - var(--cup-fit-clearance) - 1px - var(--cup-image-height) * var(--cup-art-bottom) + var(--cup-offset-y));
   width: 100%;
-  height: 100%;
+  height: var(--cup-image-height);
   object-fit: contain;
-  /* Only the rim peeks above the fixed window's existing overflow edge. */
-  transform: translateY(40%) scale(.50);
+  /* The whole cup is visible before interaction, clear of the fixed label. */
+  transform: translateY(0) scale(1);
   transform-origin: bottom center;
   transition: transform 1100ms cubic-bezier(.45, 0, .35, 1);
   pointer-events: none;
   user-select: none;
   -webkit-user-drag: none;
 }
-.drink-window[aria-expanded="true"] .signature-drinks__image { transform: translateY(-1%) scale(1.02); }
+.drink-window[aria-expanded="true"] .signature-drinks__image { transform: translateY(-1%) scale(1.04); }
 .drink-window:focus-visible { outline: 2px solid #173e32; outline-offset: 5px; }
 .drink-window__label {
   position: absolute;
@@ -44,11 +67,35 @@
   letter-spacing: .16em;
   pointer-events: none;
 }
+@media (min-width: 1400px) {
+  .signature-drinks__panel--passion .drink-window {
+    --cup-offset-y: clamp(.5px, calc((650px - var(--cup-image-height)) * .05), 2px);
+  }
+}
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .signature-drinks__panel--peach .drink-window { --cup-offset-y: 10px; }
+}
+@media (min-width: 1024px) and (max-width: 1199px) and (min-height: 900px) {
+  .drink-window { --cup-offset-y: .5px; }
+  .signature-drinks__panel--peach .drink-window { --cup-offset-y: .5px; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .drink-window { --cup-growth: 1.27; --cup-offset-y: 12px; }
+  .signature-drinks__panel--passion .drink-window { --cup-offset-y: 1px; }
+}
 @media (max-width: 767px) {
   .signature-drinks__visual { aspect-ratio: 1 / 1; }
-  .drink-window { border-radius: 22px; }
-  .drink-window[aria-expanded="true"] .signature-drinks__image { transform: translateY(5.5%) scale(1.16); }
+  .drink-window {
+    --cup-label-clearance: 66px;
+    --cup-growth: 1.26;
+    --cup-fit-clearance: 63.5px;
+    --cup-offset-y: 8px;
+    border-radius: 22px;
+  }
   .drink-window__label { padding: 24.1664px 27.1872px; font-size: 13.5936px; border-bottom-left-radius: 22px; }
+}
+@media (max-width: 359px) {
+  .signature-drinks__panel--peach .drink-window { --cup-offset-y: 4px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .drink-window .signature-drinks__image { transition: none; }

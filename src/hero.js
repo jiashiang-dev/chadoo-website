@@ -5,10 +5,15 @@ const SOURCES = {
   mobile: '/videos/chadoo-hero-mobile-scrub.mp4',
 };
 
+// The approved films are 24fps; repeat seeks within one source frame add no detail.
+const SOURCE_FRAME_RATE = 24;
+// Avoid restarting a seek more often than roughly one 60Hz presentation interval.
+const MIN_SEEK_INTERVAL_MS = 16;
+
 export function mountHero(hero) {
   const stage = hero.querySelector('.hero__stage');
   const video = hero.querySelector('video');
-  const mobile = matchMedia('(max-width: 767px)');
+  const mobile = matchMedia('(max-width: 767px), (max-width: 1023px) and (orientation: portrait)');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const listeners = new AbortController();
   let frame = 0;
@@ -18,6 +23,9 @@ export function mountHero(hero) {
   let measureNeeded = true;
   let selectedSource = '';
   let failed = false;
+  let lastTarget = 0;
+  let lastSeekAt = -Infinity;
+  let seekDirection = 0;
 
   function measure() {
     start = hero.getBoundingClientRect().top + window.scrollY;
@@ -25,7 +33,7 @@ export function mountHero(hero) {
     measureNeeded = false;
   }
 
-  function render() {
+  function render(now) {
     frame = 0;
     if (measureNeeded) measure();
     // HAVE_METADATA is sufficient for seeking. readyState can drop back to 1
@@ -35,13 +43,25 @@ export function mountHero(hero) {
     const progress = Math.min(1, Math.max(0, (window.scrollY - start) / distance));
     // Stay inside the last decoded frame instead of seeking past end-of-stream.
     const target = progress * Math.max(0, duration - 0.001);
-    // One exact target, no interpolation or waiting for an old seek. The short
-    // GOP assets let the decoder follow new targets without a long decode chain.
-    if (Math.abs(video.currentTime - target) > 0.008) {
-      video.currentTime = target;
-    } else if (!video.seeking && video.readyState >= 2 && !video.classList.contains('is-ready')) {
+    // A decoded frame can become visible while another scroll target is pending.
+    if (!video.seeking && video.readyState >= 2 && !video.classList.contains('is-ready')) {
       video.classList.add('is-ready');
     }
+    const direction = Math.sign(target - lastTarget);
+    lastTarget = target;
+    if (Math.floor(video.currentTime * SOURCE_FRAME_RATE) === Math.floor(target * SOURCE_FRAME_RATE)) return;
+
+    // Read the latest scroll position on the next display frame if input arrives
+    // faster than presentation. Never queue targets or wait for an old seek.
+    // Direction changes bypass the budget so reverse scrubbing starts at once.
+    const reversing = direction && direction !== seekDirection;
+    if (!reversing && now - lastSeekAt < MIN_SEEK_INTERVAL_MS) {
+      requestRender();
+      return;
+    }
+    if (direction) seekDirection = direction;
+    lastSeekAt = now;
+    video.currentTime = target;
   }
 
   function requestRender() {
@@ -60,6 +80,9 @@ export function mountHero(hero) {
     const source = reducedMotion.matches ? '' : SOURCES[mobile.matches ? 'mobile' : 'desktop'];
     if (source === selectedSource) return refresh();
     selectedSource = source;
+    lastTarget = 0;
+    lastSeekAt = -Infinity;
+    seekDirection = 0;
     duration = 0;
     failed = false;
     video.classList.remove('is-ready');

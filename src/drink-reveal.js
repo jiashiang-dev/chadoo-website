@@ -1,8 +1,10 @@
 // CSS owns the entire cup motion. JavaScript only toggles the accessible state.
 const productWindows = [...document.querySelectorAll('.signature-drinks .drink-window')];
 const hoverAvailable = matchMedia('(any-hover: hover)');
+let selectedCup = null;
 
 function setCupOpen(button, open) {
+  if (!open && selectedCup === button) selectedCup = null;
   button.setAttribute('aria-expanded', String(open));
   button.setAttribute('aria-label', `${open ? 'Collapse' : 'Expand'} ${button.querySelector('img').alt}`);
 }
@@ -15,13 +17,13 @@ productWindows.forEach(button => {
     productWindows.forEach(other => setCupOpen(other, other === button));
   });
   button.addEventListener('pointerleave', event => {
-    if (event.pointerType === 'mouse') setCupOpen(button, false);
+    if (event.pointerType === 'mouse' && selectedCup !== button) setCupOpen(button, false);
   });
-  button.addEventListener('click', event => {
-    // Touch and keyboard retain toggling; mouse hover owns desktop state.
-    if (hoverAvailable.matches && event.pointerType !== 'touch' && event.detail > 0) return;
-    const open = button.getAttribute('aria-expanded') !== 'true';
+  button.addEventListener('click', () => {
+    // Hover previews the enlargement; click, tap or keyboard can keep it open.
+    const open = selectedCup !== button;
     productWindows.forEach(other => setCupOpen(other, other === button && open));
+    selectedCup = open ? button : null;
   });
   button.addEventListener('keydown', event => {
     if (event.key === 'Escape') setCupOpen(button, false);

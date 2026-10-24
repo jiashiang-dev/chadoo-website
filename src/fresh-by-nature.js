@@ -37,7 +37,10 @@ if (section) {
       const opacity = Math.max(0, 1 - Math.abs(offset));
       visuals[i].style.opacity = String(opacity);
       visuals[i].style.transform = `translateY(${offset * 16}px) scale(${1 - Math.min(1, Math.abs(offset)) * .015})`;
-      copies[i].style.opacity = String(opacity);
+      // Images crossfade, but copy fades out fully before the next copy enters.
+      // Both envelopes use scroll position, so reversing is equally smooth.
+      const copyProgress = clamp(1 - Math.abs(offset) / .45);
+      copies[i].style.opacity = String(copyProgress * copyProgress * (3 - 2 * copyProgress));
       copies[i].style.transform = `translateY(${offset * 12}px)`;
       const hidden = String(i !== Math.round(position));
       if (item.getAttribute('aria-hidden') !== hidden) item.setAttribute('aria-hidden', hidden);

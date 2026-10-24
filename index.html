@@ -34,26 +34,20 @@
       <a class="floating-nav__item" href="#signature-drinks" aria-label="Drinks">
         <span class="floating-nav__label">DRINKS</span><span class="floating-nav__dot" aria-hidden="true"></span>
       </a>
-      <a class="floating-nav__item" href="#menu" aria-label="Menu" aria-disabled="true">
-        <span class="floating-nav__label">MENU</span>
-      </a>
       <a class="floating-nav__item" href="#brand-statement" aria-label="Story">
         <span class="floating-nav__label">STORY</span><span class="floating-nav__dot" aria-hidden="true"></span>
       </a>
-      <a class="floating-nav__item" href="#find-your-chadoo" aria-label="Stores">
-        <span class="floating-nav__label">STORES</span><span class="floating-nav__dot" aria-hidden="true"></span>
-      </a>
-      <a class="floating-nav__item floating-nav__item--order" href="#order" aria-label="Order now" aria-disabled="true">
-        <span class="floating-nav__label">ORDER NOW</span>
+      <a class="floating-nav__item" href="#find-your-chadoo" aria-label="Spaces">
+        <span class="floating-nav__label">SPACES</span><span class="floating-nav__dot" aria-hidden="true"></span>
       </a>
     </nav>
     <main>
       <section class="hero" aria-label="茶嘟 CHADOO fruit tea" data-hero>
         <div class="hero__stage">
           <picture class="hero__poster" aria-hidden="true">
-            <source media="(prefers-reduced-motion: reduce) and (max-width: 767px)" srcset="/posters/chadoo-hero-mobile-final.webp" />
+            <source media="(prefers-reduced-motion: reduce) and (max-width: 767px), (prefers-reduced-motion: reduce) and (max-width: 1023px) and (orientation: portrait)" srcset="/posters/chadoo-hero-mobile-final.webp" />
             <source media="(prefers-reduced-motion: reduce)" srcset="/posters/chadoo-hero-desktop-final.webp" />
-            <source media="(max-width: 767px)" srcset="/posters/chadoo-hero-mobile-start.webp" />
+            <source media="(max-width: 767px), (max-width: 1023px) and (orientation: portrait)" srcset="/posters/chadoo-hero-mobile-start.webp" />
             <img src="/posters/chadoo-hero-desktop-start.webp" alt="" fetchpriority="high" />
           </picture>
           <video class="hero__video" muted playsinline preload="auto" disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1"></video>
@@ -187,9 +181,9 @@
             <h2 class="find-chadoo__headline" id="find-chadoo-title"><span>FIND YOUR</span><span>CHADOO.</span></h2>
             <p class="find-chadoo__support">Fresh fruit tea, closer than you think.</p>
             <div class="find-chadoo__cities" role="tablist" aria-label="Choose a city">
-              <button class="find-chadoo__city" id="city-city-centre" type="button" role="tab" aria-selected="true" aria-controls="location-city-centre" tabindex="0" data-stores-url="" data-order-url="">CITY CENTRE</button>
-              <button class="find-chadoo__city" id="city-riverside" type="button" role="tab" aria-selected="false" aria-controls="location-riverside" tabindex="-1" data-stores-url="" data-order-url="">RIVERSIDE</button>
-              <button class="find-chadoo__city" id="city-old-town" type="button" role="tab" aria-selected="false" aria-controls="location-old-town" tabindex="-1" data-stores-url="" data-order-url="">OLD TOWN</button>
+              <button class="find-chadoo__city" id="city-city-centre" type="button" role="tab" aria-selected="true" aria-controls="location-city-centre" tabindex="0">CITY CENTRE</button>
+              <button class="find-chadoo__city" id="city-riverside" type="button" role="tab" aria-selected="false" aria-controls="location-riverside" tabindex="-1">RIVERSIDE</button>
+              <button class="find-chadoo__city" id="city-old-town" type="button" role="tab" aria-selected="false" aria-controls="location-old-town" tabindex="-1">OLD TOWN</button>
             </div>
           </div>
           <div class="find-chadoo__visual">
@@ -203,11 +197,6 @@
               <img src="/images/store-old-town.jpg" width="1536" height="864" alt="CHADOO storefront in a historic old-town building" loading="lazy" decoding="async" />
             </div>
           </div>
-          <div class="find-chadoo__actions">
-            <a class="find-chadoo__action" role="link" tabindex="0" aria-disabled="true" data-destination="storesUrl">VIEW STORES</a>
-            <a class="find-chadoo__action find-chadoo__action--secondary" role="link" tabindex="0" aria-disabled="true" data-destination="orderUrl">ORDER NOW</a>
-            <p class="find-chadoo__status" role="status"></p>
-          </div>
         </div>
       </section>
       <section class="brand-closing" id="brighter-days" aria-labelledby="closing-title">
@@ -218,10 +207,8 @@
         <footer class="brand-closing__footer">
           <nav class="brand-closing__links" aria-label="Footer navigation">
             <a href="#signature-drinks">DRINKS</a>
-            <span role="link" aria-disabled="true">MENU</span>
             <a href="#brand-statement">STORY</a>
-            <a href="#find-your-chadoo">STORES</a>
-            <span role="link" aria-disabled="true">INSTAGRAM</span>
+            <a href="#find-your-chadoo">SPACES</a>
           </nav>
           <p class="brand-closing__copyright">© 2026 CHADOO</p>
         </footer>
